@@ -1,0 +1,23 @@
+{
+  "name": "grpc-nodejs-example",
+  "version": "1.0.0",
+  "description": "NodeJS gRPC example",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanpsv/grpc-nodejs-example.git"
+  },
+  "keywords": [
+    "nodejs",
+    "grpc"
+  ],
+  "author": "Jean Vasconcelos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeanpsv/grpc-nodejs-example/issues"
+  },
+  "homepage": "https://github.com/jeanpsv/grpc-nodejs-example#readme"
+}
