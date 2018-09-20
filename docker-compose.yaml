@@ -3,5 +3,13 @@ version: '3'
 services:
   server:
     image: node:10.10.0
+    command: ["npm", "start"]
+    working_dir: /app
+    volumes:
+      - .:/app
+  client:
+    image: node:10.10.0
+    command: ["node", "clients/nodejs"]
+    working_dir: /app
     volumes:
       - .:/app
