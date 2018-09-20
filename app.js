@@ -6,11 +6,14 @@ const server = new grpc.Server()
 
 server.addProtoService(proto.greeter.GreeterService.service, {
   hello(call, callback) {
-    callback(`Hello ${call.request.name} !`)
+    console.log(call)
+    callback(null, {
+      message: `Hello ${call.request.name}`
+    })
   }
 })
 
-server.bind("0.0.0.0:50050", grpc.ServerCredentials.createInsecure())
+server.bind("0.0.0.0:50051", grpc.ServerCredentials.createInsecure())
 
 server.start()
 
