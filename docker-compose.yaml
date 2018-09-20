@@ -4,12 +4,18 @@ services:
   server:
     image: node:10.10.0
     command: ["npm", "start"]
+    environment:
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=50051
     working_dir: /app
     volumes:
       - .:/app
   client:
     image: node:10.10.0
     command: ["node", "clients/nodejs"]
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
     working_dir: /app
     volumes:
       - .:/app

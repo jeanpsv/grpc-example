@@ -13,7 +13,7 @@ server.addProtoService(proto.greeter.GreeterService.service, {
   }
 })
 
-server.bind("0.0.0.0:50051", grpc.ServerCredentials.createInsecure())
+server.bind(`${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`, grpc.ServerCredentials.createInsecure())
 
 server.start()
 

@@ -7,7 +7,7 @@ const proto = grpc.load({
   file: "greeter.proto"
 })
 
-const client = new proto.greeter.GreeterService("server:50051", grpc.credentials.createInsecure())
+const client = new proto.greeter.GreeterService(`${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`, grpc.credentials.createInsecure())
 
 client.hello("Jean Vasconcelos", (error, response) => {
   if (error) {
