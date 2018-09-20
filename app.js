@@ -1,14 +1,16 @@
 const grpc = require("grpc")
 const protoLoader = require("@grpc/proto-loader")
 
-const packageDefinition = protoLoader.loadSync("protobufs/greeter.proto", {
-  keepCase: true,
-  longs: String,
-  enums: String,
-  defaults: true,
-  oneofs: true
-})
-const protoDescriptor = grpc.loadPackageDefinition(packageDefinition)
+const protoDescriptor = grpc.loadPackageDefinition(
+  protoLoader.loadSync("protobufs/greeter.proto", {
+    keepCase: true,
+    longs: String,
+    enums: String,
+    defaults: true,
+    oneofs: true
+  })
+)
+
 const server = new grpc.Server()
 
 server.addService(protoDescriptor.greeter.GreeterService.service, {
