@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/jeanpsv/grpc-nodejs-example/issues"
   },
-  "homepage": "https://github.com/jeanpsv/grpc-nodejs-example#readme"
+  "homepage": "https://github.com/jeanpsv/grpc-nodejs-example#readme",
+  "dependencies": {
+    "grpc": "^1.15.1"
+  }
 }
