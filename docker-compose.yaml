@@ -2,7 +2,9 @@ version: '3'
 
 services:
   server:
-    image: node:10.10.0
+    build:
+      context: .
+      dockerfile: Dockerfile.nodejs
     command: ["npm", "start"]
     environment:
       - SERVER_HOST=0.0.0.0
@@ -11,7 +13,9 @@ services:
     volumes:
       - .:/app
   nodejs:
-    image: node:10.10.0
+    build:
+      context: .
+      dockerfile: Dockerfile.nodejs
     command: ["node", "clients/nodejs/client.js"]
     environment:
       - SERVER_HOST=server
@@ -20,7 +24,10 @@ services:
     volumes:
       - .:/app
   python:
-    image: python:3.7.0
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    command: ["python", "clients/python/client.py"]
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
