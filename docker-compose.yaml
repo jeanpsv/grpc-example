@@ -9,7 +9,6 @@ services:
     environment:
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=50051
-    working_dir: /app
     volumes:
       - .:/app
   nodejs:
@@ -20,7 +19,6 @@ services:
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
-    working_dir: /app
     volumes:
       - .:/app
   python:
@@ -31,6 +29,15 @@ services:
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
-    working_dir: /app
+    volumes:
+      - .:/app
+  ruby:
+    build:
+      context: .
+      dockerfile: Dockerfile.ruby
+    command: ["ruby", "clients/ruby/client.rb"]
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
     volumes:
       - .:/app
