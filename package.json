@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/jeanpsv/grpc-nodejs-example#readme",
   "dependencies": {
+    "@grpc/proto-loader": "^0.3.0",
     "grpc": "^1.15.1"
   }
 }

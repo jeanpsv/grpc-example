@@ -1,16 +1,28 @@
 const grpc = require("grpc")
+const protoLoader = require("@grpc/proto-loader")
 
-const proto = grpc.load("protobufs/greeter.proto")
+const protoDescriptor = grpc.loadPackageDefinition(
+  protoLoader.loadSync("protobufs/greeter.proto", {
+    keepCase: true,
+    longs: String,
+    enums: String,
+    defaults: true,
+    oneofs: true
+  })
+)
 
 const server = new grpc.Server()
 
-server.addProtoService(proto.greeter.GreeterService.service, {
+server.addService(protoDescriptor.greeter.GreeterService.service, {
   hello(call, callback) {
-    callback(`Hello ${call.request.name} !`)
+    console.log(call)
+    callback(null, {
+      message: `Hello ${call.request.name}`
+    })
   }
 })
 
-server.bind("0.0.0.0:50050", grpc.ServerCredentials.createInsecure())
+server.bind(`${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`, grpc.ServerCredentials.createInsecure())
 
 server.start()
 
