@@ -29,7 +29,7 @@ Client implementation in `nodejs/client.js`.
 
 #### Python Client
 
-To generate the Python stub methods I've installed `pip install grpcio-tools` and ran `python python/generate_pb.py`.
+To generate the Python stub methods I've installed `pip install grpcio grpcio-tools` and ran `python python/generate_pb.py`.
 See python client implementation in `python/client.py`.
 
 
