@@ -1,2 +1,2 @@
-# grpc-nodejs-example
-NodeJS gRPC example
+# grpc-example
+gRPC example
