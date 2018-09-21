@@ -10,9 +10,17 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-  client:
+  nodejs:
     image: node:10.10.0
-    command: ["node", "clients/nodejs"]
+    command: ["node", "clients/nodejs/client.js"]
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
+    working_dir: /app
+    volumes:
+      - .:/app
+  python:
+    image: python:3.7.0
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
