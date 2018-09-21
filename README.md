@@ -18,6 +18,13 @@ gRPC example
 3. `docker-compose -f docker-compose-python-server up python` to make a call using Python gRPC Client
 4. `docker-compose -f docker-compose-python-server up ruby` to make a call using Ruby gRPC Client
 
+#### Ruby gRPC Server
+
+1. `docker-compose -f docker-compose-ruby-server up server` to start Ruby gRPC Server
+2. `docker-compose -f docker-compose-ruby-server up nodejs` to make a call using NodeJS gRPC Client
+3. `docker-compose -f docker-compose-ruby-server up python` to make a call using Python gRPC Client
+4. `docker-compose -f docker-compose-ruby-server up ruby` to make a call using Ruby gRPC Client
+
 
 ### Protocol Buffer
 
