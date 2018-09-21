@@ -4,8 +4,8 @@
   "description": "NodeJS gRPC example",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "test"
+    "server": "node server.js",
+    "client": "node client.js"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 const grpc = require("grpc")
 const protoLoader = require("@grpc/proto-loader")
 
-const protoPath = require("path").join(__dirname, "../..", "protobufs")
+const protoPath = require("path").join(__dirname, "../", "protobufs")
 
 const packageDefinition = protoLoader.loadSync(`${protoPath}/greeter.proto`, {
   keepCase: true,

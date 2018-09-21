@@ -4,40 +4,32 @@ services:
   server:
     build:
       context: .
-      dockerfile: Dockerfile.nodejs
-    command: ["npm", "start"]
+      dockerfile: nodejs/Dockerfile
+    command: ["npm", "run", "server", "--prefix", "nodejs"]
     environment:
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=50051
-    volumes:
-      - .:/app
   nodejs:
     build:
       context: .
-      dockerfile: Dockerfile.nodejs
-    command: ["node", "clients/nodejs/client.js"]
+      dockerfile: nodejs/Dockerfile
+    command: ["npm", "run", "client", "--prefix", "nodejs"]
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
-    volumes:
-      - .:/app
   python:
     build:
       context: .
-      dockerfile: Dockerfile.python
-    command: ["python", "clients/python/client.py"]
+      dockerfile: python/Dockerfile
+    command: ["python", "python/client.py"]
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
-    volumes:
-      - .:/app
   ruby:
     build:
       context: .
-      dockerfile: Dockerfile.ruby
-    command: ["ruby", "clients/ruby/client.rb"]
+      dockerfile: ruby/Dockerfile
+    command: ["ruby", "ruby/client.rb"]
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
-    volumes:
-      - .:/app

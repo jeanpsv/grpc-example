@@ -2,7 +2,7 @@ const grpc = require("grpc")
 const protoLoader = require("@grpc/proto-loader")
 
 const protoDescriptor = grpc.loadPackageDefinition(
-  protoLoader.loadSync("protobufs/greeter.proto", {
+  protoLoader.loadSync("../protobufs/greeter.proto", {
     keepCase: true,
     longs: String,
     enums: String,

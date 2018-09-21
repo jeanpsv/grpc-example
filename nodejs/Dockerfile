@@ -2,4 +2,4 @@ FROM node:10.10.0
 
 WORKDIR /app
 COPY . .
-RUN npm install
+RUN npm install --prefix nodejs
