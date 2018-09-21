@@ -25,3 +25,11 @@ services:
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
+  ruby:
+    build:
+      context: .
+      dockerfile: ruby/Dockerfile
+    command: ["ruby", "ruby/client.rb"]
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
