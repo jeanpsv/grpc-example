@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: elixir/Dockerfile
+    command: ["mix", "grpc.server"]
+    working_dir: /app/elixir
+    environment:
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=50051
+  nodejs:
+    build:
+      context: .
+      dockerfile: nodejs/Dockerfile
+    command: ["npm", "run", "client", "--prefix", "nodejs"]
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
+  python:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    command: ["python", "python/client.py"]
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
+  ruby:
+    build:
+      context: .
+      dockerfile: ruby/Dockerfile
+    command: ["ruby", "ruby/client.rb"]
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
+  elixir:
+    build:
+      context: .
+      dockerfile: elixir/Dockerfile
+    command: ["mix", "run", "priv/client.exs"]
+    working_dir: /app/elixir
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
