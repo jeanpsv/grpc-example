@@ -4,8 +4,9 @@ services:
   server:
     build:
       context: .
-      dockerfile: python/Dockerfile
-    command: ["python", "python/server.py"]
+      dockerfile: elixir/Dockerfile
+    command: ["mix", "grpc.server"]
+    working_dir: /app/elixir
     environment:
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=50051

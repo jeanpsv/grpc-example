@@ -4,27 +4,29 @@ gRPC example
 
 ### Usage
 
-#### NodeJS gRPC Server
+I've implemented some docker-compose file to make easy run tests.
+All docker-compose files have all clients written in NodeJS, Python, Ruby and Elixir.
 
-1. `docker-compose -f docker-compose-nodejs-server up server` to start NodeJS gRPC Server
-2. `docker-compose -f docker-compose-nodejs-server up nodejs` to make a call using NodeJS gRPC Client
-3. `docker-compose -f docker-compose-nodejs-server up python` to make a call using Python gRPC Client
-4. `docker-compose -f docker-compose-nodejs-server up ruby` to make a call using Ruby gRPC Client
+To run the gRPC server in a specific language, choose between the docker-compose files:
 
-#### Python gRPC Server
+1. `docker-compose-nodejs-server.yaml` - gRPC server implemented in NodeJS language
+2. `docker-compose-python-server.yaml` - gRPC server implemented in Python language
+3. `docker-compose-ruby-server.yaml` - gRPC server implemented in Ruby language
+4. `docker-compose-elixir-server.yaml` - gRPC server implemented in Elixir language
 
-1. `docker-compose -f docker-compose-python-server up server` to start Python gRPC Server
-2. `docker-compose -f docker-compose-python-server up nodejs` to make a call using NodeJS gRPC Client
-3. `docker-compose -f docker-compose-python-server up python` to make a call using Python gRPC Client
-4. `docker-compose -f docker-compose-python-server up ruby` to make a call using Ruby gRPC Client
+To run the gRPC server use:
+```bash
+$ docker-compose -f ${docker-compose-file} up server
+```
 
-#### Ruby gRPC Server
+To run the grPC client use:
+```bash
+$ docker-compose -f ${docker-compose-file} up ${client}
+```
 
-1. `docker-compose -f docker-compose-ruby-server up server` to start Ruby gRPC Server
-2. `docker-compose -f docker-compose-ruby-server up nodejs` to make a call using NodeJS gRPC Client
-3. `docker-compose -f docker-compose-ruby-server up python` to make a call using Python gRPC Client
-4. `docker-compose -f docker-compose-ruby-server up ruby` to make a call using Ruby gRPC Client
+`${docker-compose-file}` must be `docker-compose-nodejs-server.yaml`, `docker-compose-python-server.yaml`, `docker-compose-ruby-server.yaml` or `docker-compose-elixir-server.yaml`.
 
+`${client}` must be `nodejs`, `python`, `ruby` or `elixir`.
 
 ### Protocol Buffer
 
@@ -53,3 +55,8 @@ See python client implementation in `python/client.py`.
 
 To generate the Ruby stub methods I've installed `gem install grpc grpc-tools` and ran `grpc_tools_ruby_protoc -I ../protobufs --ruby_out=. --grpc_out=. ../protobufs/greeter.proto`.
 See ruby client implementation in `ruby/client.rb`.
+
+
+#### Elixir Client
+
+Client implementation in `elixir/priv/client.exs`.

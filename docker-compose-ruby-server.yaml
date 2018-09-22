@@ -33,3 +33,12 @@ services:
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=50051
+  elixir:
+    build:
+      context: .
+      dockerfile: elixir/Dockerfile
+    command: ["mix", "run", "priv/client.exs"]
+    working_dir: /app/elixir
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
