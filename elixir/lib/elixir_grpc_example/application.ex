@@ -6,10 +6,17 @@ defmodule ElixirGrpcExample.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec
+
+    port =
+      System.get_env("SERVER_PORT")
+      |> String.to_integer
+
     # List all child processes to be supervised
     children = [
       # Starts a worker by calling: ElixirGrpcExample.Worker.start_link(arg)
       # {ElixirGrpcExample.Worker, arg},
+      supervisor(GRPC.Server.Supervisor, [{ElixirGrpcExample.Greeter.Server, port}])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
