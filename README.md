@@ -10,6 +10,7 @@ gRPC example
 2. `docker-compose -f docker-compose-nodejs-server up nodejs` to make a call using NodeJS gRPC Client
 3. `docker-compose -f docker-compose-nodejs-server up python` to make a call using Python gRPC Client
 4. `docker-compose -f docker-compose-nodejs-server up ruby` to make a call using Ruby gRPC Client
+5. `docker-compose -f docker-compose-nodejs-server up elixir` to make a call using Elixir gRPC Client
 
 #### Python gRPC Server
 
@@ -17,6 +18,7 @@ gRPC example
 2. `docker-compose -f docker-compose-python-server up nodejs` to make a call using NodeJS gRPC Client
 3. `docker-compose -f docker-compose-python-server up python` to make a call using Python gRPC Client
 4. `docker-compose -f docker-compose-python-server up ruby` to make a call using Ruby gRPC Client
+5. `docker-compose -f docker-compose-python-server up elixir` to make a call using Elixir gRPC Client
 
 #### Ruby gRPC Server
 
@@ -24,6 +26,7 @@ gRPC example
 2. `docker-compose -f docker-compose-ruby-server up nodejs` to make a call using NodeJS gRPC Client
 3. `docker-compose -f docker-compose-ruby-server up python` to make a call using Python gRPC Client
 4. `docker-compose -f docker-compose-ruby-server up ruby` to make a call using Ruby gRPC Client
+5. `docker-compose -f docker-compose-ruby-server up elixir` to make a call using Elixir gRPC Client
 
 
 ### Protocol Buffer
@@ -53,3 +56,8 @@ See python client implementation in `python/client.py`.
 
 To generate the Ruby stub methods I've installed `gem install grpc grpc-tools` and ran `grpc_tools_ruby_protoc -I ../protobufs --ruby_out=. --grpc_out=. ../protobufs/greeter.proto`.
 See ruby client implementation in `ruby/client.rb`.
+
+
+#### Elixir Client
+
+Client implementation in `elixir/priv/client.exs`.
